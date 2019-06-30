@@ -1,0 +1,182 @@
+﻿
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>chat1</title>
+<script src="js/jquery.min.js"></script>
+<!--<script src="//cdn.bootcss.com/web-socket-js/1.0.0/web_socket.min.js"></script>-->
+
+<style>
+	.father {
+		position: relative;
+	}
+	#newsContent {
+		width: 40%;
+		height: 30%;
+		border: 1px red solid;
+		position: absolute;
+		left: 30%;
+		top: 10%;
+		overflow-x: auto;
+		overflow-y: auto;
+		overflow: auto;
+	}	
+	#send {
+		position: absolute;
+		left: 66%;
+		top: 45%;
+		width: 66px;
+	}
+	#input {
+		position: absolute;
+		top: 45%;
+		left: 30%;
+		width: 34%;
+	}	
+	#onlineuser {
+		width: 10%;
+		height: 40%;
+		position: absolute;
+		left: 10%;
+		top: 10%;
+		border: 1px solid blue;
+	}
+</style>
+</head>
+
+<body>
+<span id="onlineuser"></span>
+<span id="newsContent"></span>
+<input type="text" id="input">
+<input type="button" id="send" value="发送">
+<input type="button" id="exit" value="退出">
+<!--<input type="button" id="receive" value="接受">-->
+
+</body>
+<script>
+	var ws = new WebSocket("ws://182.254.133.68:8080/")
+	//var ws = new WebSocket("ws://localhost:8080/")
+	
+	var sd = document.getElementById("send")
+	
+	var news = document.getElementById("newsContent")
+	
+	var inp = document.getElementById("input")
+	
+	var nu = document.getElementById("onlineuser")
+	
+	var messages = new Array()
+	
+	var onusers = new Array()
+	
+	var exit = document.getElementById("exit")
+	
+	var user_name
+	
+	ws.onerror = function(error) 
+	{
+		alert(error)
+	}
+	
+	function unique(arr){
+         var result = [];
+         for(var i=0;i<arr.length;i++){
+             if(result.indexOf(arr[i])==-1){
+                 result.push(arr[i])
+             }
+         }
+         return result;
+     }
+	
+	function contains(arr, obj) 
+	{
+  		var i = arr.length;
+		while (i--) 
+		{
+    		if (arr[i] === obj) 
+			{
+      			return 1;
+			}
+		}
+		return 0;
+	}
+	
+    function prom() 
+	{  
+        var name = prompt("请输入您的昵称："); 
+  
+        if (name)
+		{
+            alert("欢迎加入聊天室：" + name)  
+        }  
+		user_name = name
+		if(ws.readyState === 1)
+		{
+			ws.send("n-" + name)
+		}
+		else 
+		{
+			var time = setTimeout(function()
+				{
+					ws.send("n-" + name)
+				}, 10)
+		}
+    }  
+	
+	var time = setTimeout(prom, 10)
+	
+	ws.onopen = function(event)
+	{
+		sd.onclick = function()
+		{
+			ws.send(user_name + ":" + inp.value)
+			inp.value = ''
+		}
+		
+		exit.onclick = function()
+		{
+			ws.send("*-exit-*")
+		}
+	}
+	
+	ws.onmessage = function(event)
+	{
+		//onusers.splice(0, onusers.length)
+		if(event.data.indexOf("在线用户") > 0)
+		{
+			var x = new Array()
+			onusers.push(event.data)
+			//onusers.splice(0, onusers.length)
+			x = unique(onusers)
+			nu.innerText = ""
+			for(var i = 0; i < x.length; i++)
+			{
+				nu.innerText = nu.innerText + '\n' + x[i]
+			}
+			
+		}
+		else
+		{
+			news.innerText = news.innerText + '\n' + event.data
+			messages.push(event.data)
+		}
+	}
+	
+	ws.onclose = function() 
+	{
+		alert("连接已断开")
+	}
+	
+	inp.onkeydown = function(event)
+	{
+		if(event.keyCode == 13)
+		{
+			sd.onclick()
+		}
+		news.scrollTop = news.scrollHeight
+	}
+</script>
+
+</html>
