@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb167c72-cfc4-4a18-b788-ae828e540f9c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/Go-zh/tour" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/Go-zh/tour" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/Go-zh/tour/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/Go-zh/tour/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/Go-zh/tour/AUTHORS" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/Go-zh/tour/AUTHORS" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/Go-zh/tour/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/Go-zh/tour/CONTRIBUTING.md" afterDir="false" />
@@ -160,6 +160,7 @@
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/Go-zh/tour/vendor/golang.org/x/tour/pic/pic.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/Go-zh/tour/vendor/golang.org/x/tour/pic/pic.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/Go-zh/tour/vendor/golang.org/x/tour/tree/tree.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/Go-zh/tour/vendor/golang.org/x/tour/tree/tree.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/Go-zh/tour/vendor/golang.org/x/tour/wc/wc.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/Go-zh/tour/vendor/golang.org/x/tour/wc/wc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/PuerkitoBio/goquery" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/PuerkitoBio/goquery" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/PuerkitoBio/goquery/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/PuerkitoBio/goquery/.gitattributes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/PuerkitoBio/goquery/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/PuerkitoBio/goquery/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/PuerkitoBio/goquery/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/PuerkitoBio/goquery/.travis.yml" afterDir="false" />
@@ -216,6 +217,7 @@
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/PuerkitoBio/goquery/type_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/PuerkitoBio/goquery/type_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/PuerkitoBio/goquery/utilities.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/PuerkitoBio/goquery/utilities.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/PuerkitoBio/goquery/utilities_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/PuerkitoBio/goquery/utilities_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/alecthomas/gozmq" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/alecthomas/gozmq" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/alecthomas/gozmq/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/alecthomas/gozmq/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/alecthomas/gozmq/.godocdown.md" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/alecthomas/gozmq/.godocdown.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/alecthomas/gozmq/.todo2" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/alecthomas/gozmq/.todo2" afterDir="false" />
@@ -248,6 +250,7 @@
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/alecthomas/gozmq/zmqgen_2_2.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/alecthomas/gozmq/zmqgen_2_2.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/alecthomas/gozmq/zmqgen_3_2.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/alecthomas/gozmq/zmqgen_3_2.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/alecthomas/gozmq/zmqgen_4_0.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/alecthomas/gozmq/zmqgen_4_0.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/andybalholm/cascadia" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/andybalholm/cascadia" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/andybalholm/cascadia/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/andybalholm/cascadia/.travis.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/andybalholm/cascadia/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/andybalholm/cascadia/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/andybalholm/cascadia/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/andybalholm/cascadia/README.md" afterDir="false" />
@@ -258,6 +261,7 @@
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/andybalholm/cascadia/parser_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/andybalholm/cascadia/parser_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/andybalholm/cascadia/selector.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/andybalholm/cascadia/selector.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/andybalholm/cascadia/selector_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/andybalholm/cascadia/selector_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/astaxie/beego" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/astaxie/beego" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/astaxie/beego/.github/ISSUE_TEMPLATE" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/astaxie/beego/.github/ISSUE_TEMPLATE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/astaxie/beego/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/astaxie/beego/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/astaxie/beego/.gosimpleignore" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/astaxie/beego/.gosimpleignore" afterDir="false" />
@@ -480,6 +484,7 @@
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/astaxie/beego/validation/validation.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/astaxie/beego/validation/validation.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/astaxie/beego/validation/validation_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/astaxie/beego/validation/validation_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/astaxie/beego/validation/validators.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/astaxie/beego/validation/validators.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/beego/bee" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/beego/bee" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/beego/bee/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/beego/bee/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/beego/bee/.goxc.json" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/beego/bee/.goxc.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/beego/bee/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/beego/bee/.travis.yml" afterDir="false" />
@@ -942,6 +947,7 @@
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/beego/bee/vendor/rsc.io/x86/x86asm/plan9x.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/beego/bee/vendor/rsc.io/x86/x86asm/plan9x.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/beego/bee/vendor/rsc.io/x86/x86asm/tables.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/beego/bee/vendor/rsc.io/x86/x86asm/tables.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/beego/bee/vendor/vendor.json" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/beego/bee/vendor/vendor.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/mattn/go-runewidth" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/mattn/go-runewidth" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/mattn/go-runewidth/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/mattn/go-runewidth/.travis.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/mattn/go-runewidth/README.mkd" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/mattn/go-runewidth/README.mkd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/mattn/go-runewidth/runewidth.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/mattn/go-runewidth/runewidth.go" afterDir="false" />
@@ -949,6 +955,7 @@
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/mattn/go-runewidth/runewidth_posix.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/mattn/go-runewidth/runewidth_posix.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/mattn/go-runewidth/runewidth_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/mattn/go-runewidth/runewidth_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/mattn/go-runewidth/runewidth_windows.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/mattn/go-runewidth/runewidth_windows.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/nsf/termbox-go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/nsf/termbox-go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/nsf/termbox-go/AUTHORS" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/nsf/termbox-go/AUTHORS" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/nsf/termbox-go/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/nsf/termbox-go/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/nsf/termbox-go/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/nsf/termbox-go/README.md" afterDir="false" />
@@ -976,11 +983,13 @@
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/nsf/termbox-go/termbox_windows.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/nsf/termbox-go/termbox_windows.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/nsf/termbox-go/terminfo.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/nsf/termbox-go/terminfo.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/nsf/termbox-go/terminfo_builtin.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/nsf/termbox-go/terminfo_builtin.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/qianlnk/terminal" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/qianlnk/terminal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/qianlnk/terminal/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/qianlnk/terminal/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/qianlnk/terminal/nobufio.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/qianlnk/terminal/nobufio.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/qianlnk/terminal/nobufio_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/qianlnk/terminal/nobufio_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/qianlnk/terminal/terminal.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/qianlnk/terminal/terminal.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/qianlnk/terminal/terminal_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/qianlnk/terminal/terminal_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/sbinet/go-python" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/sbinet/go-python" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/sbinet/go-python/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/sbinet/go-python/.travis.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/sbinet/go-python/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/sbinet/go-python/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/sbinet/go-python/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/sbinet/go-python/Makefile" afterDir="false" />
@@ -1015,6 +1024,7 @@
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/sbinet/go-python/type.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/sbinet/go-python/type.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/sbinet/go-python/utilities.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/sbinet/go-python/utilities.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/sbinet/go-python/veryhigh.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/sbinet/go-python/veryhigh.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/visualfc/goqt" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/visualfc/goqt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/visualfc/goqt/examples/application/application.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/visualfc/goqt/examples/application/application.qrc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/visualfc/goqt/examples/application/application_qrc.go" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/visualfc/goqt/examples/application/application_qrc.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go-dev/src/github.com/visualfc/goqt/examples/application/build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/go-dev/src/github.com/visualfc/goqt/examples/application/build.sh" afterDir="false" />
@@ -1161,8 +1171,8 @@
     <frame x="67" y="32" width="1853" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19209354" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49886364" visible="true" weight="0.1948775" />
+      <window_info id="Structure" order="1" sideWeight="0.50113636" side_tool="true" weight="0.1948775" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -1175,7 +1185,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32954547" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" visible="true" weight="0.32954547" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.3284091" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1200,6 +1210,7 @@
     </entry>
   </component>
   <component name="hg4idea.settings">
+    <option name="CHECK_INCOMING_OUTGOING" value="true" />
     <option name="RECENT_HG_ROOT_PATH" value="$PROJECT_DIR$/go-dev/src/examples/chapter_11/tideland-cgl.googlecode.com/hg" />
   </component>
 </project>
