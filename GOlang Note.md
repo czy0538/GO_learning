@@ -1,4 +1,4 @@
-# GOlang Note
+GOlang Note
 
 [TOC]
 
@@ -23,6 +23,7 @@ func main(){
 - 入口main函数没有参数和返回值，如果需要向main传入参数，可以在os.Args变量中保存
 - **左大括号**必须和函数声明或控制结构放在同一行
 - 最后的**分号** 可以省略，出现分号的典型位置是for循环及其类似位置 
+- %T 类型，%v输出数据，%p地址 
 
 
 
@@ -128,7 +129,39 @@ if result:=someFunc();result>0{
 }
 ```
 
-### 2.switch
+### 2 .come-ok模式
+
+```go
+//value, ok := element.(T)
+// element必须是接口类型的变量，T是普通类型。如果断言失败，ok为false，否则ok为true并且value为变量的值。
+package main
+
+import (
+    "fmt"
+)
+
+type Html []interface{}
+
+func main() {
+    html := make(Html, 5)
+    html[0] = "div"
+    html[1] = "span"
+    html[2] = []byte("script")
+    html[3] = "style"
+    html[4] = "head"
+    for index, element := range html {
+        if value, ok := element.(string); ok {
+            fmt.Printf("html[%d] is a string and its value is %s\n", index, value)
+        } else if value, ok := element.([]byte); ok {
+            fmt.Printf("html[%d] is a []byte and its value is %s\n", index, string(value))
+        }
+    }
+}
+```
+
+
+
+### 3.switch
 
 - 允许有相同的条件，多个条件之间用 , 分隔
 
@@ -149,7 +182,7 @@ if result:=someFunc();result>0{
   }
   ```
 
-### 5.循环
+### 3.循环
 
 **只有for循环**,且循环条件不用括号
 
@@ -187,22 +220,239 @@ for i,v:=range x{
 ### 1.数组
 
 - 具有固定长度且拥有0个或者多个相同数据类型元素的序列
+
 - len返回数组中的元素个数
+
 - var q[3] int
-- q:= [...]int{1,2,3} 省略号表示数组长度由初始化数组的元素个数金额U盾ing
-- 当传入函数时，接受的是一个**副本，而不是原始的数组**
+
+- var a=[3] int {1,2,3}
+
+- q:= [...]int{1,2,3} 省略号表示数组长度由初始化数组的元素个数由初始化列表决定,仅能用于第一维数组
+
+- 当传入函数时，接受的是一个**副本，而不是原始的数组
+
+- 多维数组: n维数组由n-1维数组构成
+
+  ```go 
+  a:=[2][2]int{{1,2},{3,4}}
+  ```
+
+- 数组和指针
+
+  - 数组名不代表指针
+
+  ```go
+  x,y:=10,20
+  a:=[...]*int{&x,&y}
+  p=&a
+  fmt.Printf("%T,%v\n",a,a)
+  fmt.Printf("%T,%p,%v,%v,%p\n",p,p,p,*p,&p)
+  ```
+
+- 允许数组的整体copy
+
+- var x *[2] int x是指向数组的指针
+
+- var x[2] *int x是指针数组
 
 ### 2.slice
 
 - 相同类型元素的可变长度的序列
+
 - []T
+
 - len返回长度，cap返回容量
+
 - s[i:j]截取一个子slice，包括i不包括j
+
 - slice包含了指向数组元素的指针，即将slice传给函数时，传的是引用
+
 - 无法直接比较，可以用bytes.Equal或者自己的函数来比较
+
+- 允许和nil比较
+
+- 检测是否为空应该用len(s)==0
+
+- 建立制定长度的容量的slice ：make([]T,len,cap)
+
+  ```go
+  x:=make([]int,5,5)
+  	for i,v:=range x{
+  		fmt.Println(i,v)
+  	}
+  0 0
+  1 0
+  2 0
+  3 0
+  4 0
+  
+  x:=make([]int,0,5)
+  	for i,v:=range x{
+  		fmt.Println(i,v)
+  	}
+  无任何输出
+  ```
+
+  
+
 - append(slice_name,T) 函数：追加到slice后面
 
+  ```go
+  //append函数实现,类似vector方式
+  package main
+  
+  import "fmt"
+  
+  func appendslice(x []int, y ...int) []int {
+  	var z []int
+  	zlen := len(x) + len(y)
+  	if zlen <= cap(x) {
+  
+  		z = x[:zlen]
+  	} else {
+  		
+  		zcap := zlen
+  		if zcap < 2*len(x) {
+  			zcap = 2 * len(x)
+  		}
+  		z = make([]int, zlen, zcap)
+  		copy(z, x)
+  	}
+  	copy(z[len(x):], y)
+  	return z
+  }
+  
+  func appendInt(x []int, y int) []int {
+  	var z []int
+  	zlen := len(x) + 1
+  	if zlen <= cap(x) {
+  
+  		z = x[:zlen]
+  	} else {
+  		zcap := zlen
+  		if zcap < 2*len(x) {
+  			zcap = 2 * len(x)
+  		}
+  		z = make([]int, zlen, zcap)
+  		copy(z, x) 
+  	}
+  	z[len(x)] = y
+  	return z
+  }
+  
+  func main() {
+  	var x, y []int
+  	for i := 0; i < 10; i++ {
+  		y = appendInt(x, i)
+  		fmt.Printf("%d  cap=%d\t%v\n", i, cap(y), y)
+  		x = y
+  	}
+  }
+  
+  ```
 
+
+
+### 3 .map
+
+- key-value对
+
+- 散列表的引用
+
+- key的类型必须可以通过 ==来比较
+
+- make(map[key_type]value_type)
+
+- 空map：map[string]int{}
+
+- delete函数移除元素:delete(map_name,key_name),删除失败返回0
+
+- 可以使用范围for遍历map，但是顺序是不定的
+
+- 如果需要顺序需要sort
+
+  ```go
+  import"sort"
+  var names[] string
+  for name:= range ages{
+      names =append(name,name)
+  }
+  sort.Strings(names)
+  for_,name:= range names{
+      fmt.Printf("%s\t%d\n",name,ages[name])
+  }
+  ```
+
+  - map值类型本身可以是复合数据类型
+
+
+
+### 4.结构体
+结构体数组：
+
+- 基本格式
+
+  小写为私有，大写为公有
+
+  ```go
+  type student struct{
+      stuName string
+      age byte
+  }
+  
+  stu1:=student{"小明"，16}
+  stu1:=[2]student{{"xi",16},{"he",18}}
+  stu1=student{age=16,stuName="小明"}
+  ```
+
+- 结构体嵌套和匿名成员
+
+  - 允许结构体嵌套
+  
+  - 匿名成员：只需要指定类型名，必须是一个命名类型或者指向命名类型的指针
+  
+    ```go
+    type Point struct{
+        x,y,int
+    }
+    type Circle struct{
+        Point
+        Radius int
+    }
+    type Wheel struct{
+        Circle
+        Spokes int
+    }
+    var w Wheel
+    {
+        w.x=8//相当于w.Circle.Point.x=8
+        w.y=8
+        w.Radius=5
+        w.Spokes=20
+    }
+    ```
+  
+    
+  
+- 方法
+
+  ```go
+  //私有方法
+  type Point struct{
+      float64 x,y
+  }
+  func (p Point) dist() float64{    //函数名和函数定义之间为所有者
+  	return math.Sqrt(p.x*p.x + p.y*p.y)
+  }
+  
+  //公有方法
+  func (p Point) Dist() float64{    //函数名和函数定义之间为所有者
+  	return math.Sqrt(p.x*p.x + p.y*p.y)
+  }
+  ```
+
+- 通常用指针的方式使用
+- 可比较性：其中所有的成员都是可比较的就是可比较的
 
 ### 6.函数
 
@@ -210,6 +460,10 @@ for i,v:=range x{
 - 允许多返回值
 
 ```go
+//format:
+func name(parameter_list)(result_list){
+    body
+}
 func divide(a,b int)(int, int){
     quotient:=a/b
     remainder:=a%b
@@ -252,16 +506,21 @@ func divide(a,b,int)(quotient ,reminder int){
       add 5:=makeAdder(5)
       add36 :=makeAdder(36)
   }
+  //另一种用法
+    fun makeAddr(x int) (func(int)int){
+        return func(y int) int{ return x+y}（5）
+    }
   ```
 
-  - 闭包返回值是匿名函数
+- 闭包返回值是匿名函数
+  
   - 匿名函数嵌套在闭包内部
-  - 匿名函数引用了自身的外部变量 
-
+- 匿名函数引用了自身的外部变量 
+  
   ### 6.4回调
-
+  
   函数可以作为其他函数的参数进行传递，然后在其他函数内调用执行，一般称之为回调
-
+  
   ```go
   package main
   import "fmt"
@@ -271,15 +530,16 @@ func divide(a,b,int)(quotient ,reminder int){
   func Add(a,b int){
       fmt.Printf("The sum of %D and %d is:%d\n",a,b,a+b)
   }
-  
+
   func callback(y int,f func(int,int)){
-      f(y,2)//<=> Add(1,2)
+    f(y,2)//<=> Add(1,2)
   }
   ```
+```
 
   ### 6.5 defer语句
 
-  延迟调用语句，无论函数执行是否出错，都确保结束前被调用
+  延迟调用语句，无论函数执行是否出错，都确保结束前被调用	
 
   ```go
   package main
@@ -290,14 +550,11 @@ func divide(a,b,int)(quotient ,reminder int){
   }
   // The second
   // The first
-  
+
   //用于数据清理工作，保证代码结构清晰，避免遗忘
   scrFile,err:= os.Open(scrName)
   defer srcFile.Close()
-  ```
-
-  
-
+```
 
 
 
