@@ -76,7 +76,7 @@ func main(){
 
 ### 7.包和文件
 
-- 每个包给他的声明提供独立的命名空间
+- 
 - 标识符可见：导出的标识符以大写字母开头
 - 包的导入：import " package name
 
@@ -234,7 +234,7 @@ for i,v:=range x{
 - 多维数组: n维数组由n-1维数组构成
 
   ```go 
-  a:=[2][2]int{{1,2},{3,4}}
+  
   ```
 
 - 数组和指针
@@ -243,6 +243,7 @@ for i,v:=range x{
 
   ```go
   x,y:=10,20
+  a:=[2][2]int{{1,2},{3,4}}
   a:=[...]*int{&x,&y}
   p=&a
   fmt.Printf("%T,%v\n",a,a)
@@ -276,25 +277,11 @@ for i,v:=range x{
 - 建立制定长度的容量的slice ：make([]T,len,cap)
 
   ```go
-  x:=make([]int,5,5)
-  	for i,v:=range x{
-  		fmt.Println(i,v)
-  	}
-  0 0
-  1 0
-  2 0
-  3 0
-  4 0
   
-  x:=make([]int,0,5)
-  	for i,v:=range x{
-  		fmt.Println(i,v)
-  	}
-  无任何输出
   ```
-
   
-
+  
+  
 - append(slice_name,T) 函数：追加到slice后面
 
   ```go
@@ -349,6 +336,22 @@ for i,v:=range x{
   	}
   }
   
+  x:=make([]int,5,5)
+  	for i,v:=range x{
+  		fmt.Println(i,v)
+  	}
+  0 0
+  1 0
+  2 0
+  3 0
+  4 0
+  
+  x:=make([]int,0,5)
+  	for i,v:=range x{
+  		fmt.Println(i,v)
+  	}
+  无任何输出
+  
   ```
 
 
@@ -387,9 +390,7 @@ for i,v:=range x{
 
 
 
-### 4.结构体
-结构体数组：
-
+### 4.方法
 - 基本格式
 
   小写为私有，大写为公有
@@ -452,7 +453,20 @@ for i,v:=range x{
   ```
 
 - 通常用指针的方式使用
+
 - 可比较性：其中所有的成员都是可比较的就是可比较的
+
+- 接口：类似cpp的匿名函数
+
+  ```go
+  type Printer interface {
+  Print()//公共行为
+  /*无需显示给出实现类型*/
+  }
+  
+  ```
+
+  
 
 ### 6.函数
 
@@ -477,7 +491,7 @@ func divide(a,b,int)(quotient ,reminder int){
 }
 ```
 
-### 6.1 匿名函数
+#### 6.1 匿名函数
 
 - 匿名函数可被当成一种数据类型来使用
 
@@ -490,7 +504,7 @@ func divide(a,b,int)(quotient ,reminder int){
   sum:=f(2,3)
   ```
 
-### 6.3闭包
+#### 6.2闭包
 
 - 内部函数通过某种方式使其可见范围超出了其定义的范围
 
@@ -515,47 +529,347 @@ func divide(a,b,int)(quotient ,reminder int){
 - 闭包返回值是匿名函数
   
   - 匿名函数嵌套在闭包内部
+  
 - 匿名函数引用了自身的外部变量 
   
-  ### 6.4回调
   
-  函数可以作为其他函数的参数进行传递，然后在其他函数内调用执行，一般称之为回调
-  
+
+#### 6.3回调
+
+函数可以作为其他函数的参数进行传递，然后在其他函数内调用执行，一般称之为回调
+
+```go
+package main
+import "fmt"
+func main(){
+    callback(1,Add)
+}
+func Add(a,b int){
+    fmt.Printf("The sum of %D and %d is:%d\n",a,b,a+b)
+}
+
+func callback(y int,f func(int,int)){
+  f(y,2)//<=> Add(1,2)
+}
+```
+
+#### 6.4 defer语句
+
+延迟调用语句，无论函数执行是否出错，都确保结束前被调用	
+
+```go
+package main
+import "main"
+func main(){
+    defer fmt.Println("The fist")
+    fmt.Println("The second")
+}
+// The second
+// The first
+
+//用于数据清理工作，保证代码结构清晰，避免遗忘
+scrFile,err:= os.Open(scrName)
+defer srcFile.Close()
+```
+
+
+
+## 7文件操作
+
+### 7.1 用户输入的读取
+
+#### 7.1.1 fmt方法
+
+- `Scanln` 扫描来自标准输入的文本，将空格分隔的值依次存放到后续的参数内，直到碰到换行。
+
+- `Scanf`与其类似，`Scanf` 的第一个参数用作格式字符串，用来决定如何读取。
+
+- `Sscan` 和以 `Sscan` 开头的函数则是从字符串读取，除此之外，与 `Scanf` 相同。
+
   ```go
+  // 从控制台读取输入:
   package main
   import "fmt"
-  func main(){
-      callback(1,Add)
-  }
-  func Add(a,b int){
-      fmt.Printf("The sum of %D and %d is:%d\n",a,b,a+b)
-  }
-
-  func callback(y int,f func(int,int)){
-    f(y,2)//<=> Add(1,2)
+  
+  var (
+     firstName, lastName, s string
+     i int
+     f float64
+     input = "56.12 / 5212 / Go"
+     format = "%f / %d / %s"
+  )
+  
+  func main() {
+     fmt.Println("Please enter your full name: ")
+     fmt.Scanln(&firstName, &lastName)
+     // fmt.Scanf("%s %s", &firstName, &lastName)
+     fmt.Printf("Hi %s %s!\n", firstName, lastName) 
+     fmt.Sscanf(input, format, &f, &i, &s)
+     fmt.Println("From the string we read: ", f, i, s)
+      
   }
   ```
+
+  
+
+#### 7.1.2 bufio方法
+
+- `inputReader` 是一个指向 `bufio.Reader` 的指针。
+
+  `inputReader := bufio.NewReader(os.Stdin)` 这行代码，将会创建一个读取器，类似文件指针
+
+​	返回的读取器对象提供一个方法 `ReadString(delim byte)`，该方法从输入中读取内容，直到碰到 `delim` 指定的字符，	然后将读取到的内容连同 `delim` 字符一起放到缓冲区。
+
+- `ReadString` 返回读取到的字符串，如果碰到错误则返回 `nil`。它一直读到文件结束，则返回读取到的字符串和 `io.EOF`。如果读取过程中没有碰到 `delim` 字符，将返回错误 `err != nil`。
+
+- 屏幕是标准输出 `os.Stdout`；`os.Stderr` 用于显示错误信息，大多数情况下等同于 `os.Stdout`。
+
+```go
+package main
+import (
+    "fmt"
+    "bufio"
+    "os"
+)
+
+var inputReader *bufio.Reader
+var input string
+var err error
+
+func main() {
+    inputReader = bufio.NewReader(os.Stdin)
+    fmt.Println("Please enter some input: ")
+    input, err = inputReader.ReadString('\n')
+    if err == nil {
+        fmt.Printf("The input was: %s\n", input)
+    }
+}
 ```
 
-  ### 6.5 defer语句
 
-  延迟调用语句，无论函数执行是否出错，都确保结束前被调用	
+
+### 7.2文件读写
+
+- 文件使用指向 `os.File` 类型的指针来表示的，也叫做文件句柄。
+
+#### 7.2.1按行读取
+
+- ReadString('\n') 或者 Readbytes('\n')或者ReadLine()
 
   ```go
   package main
-  import "main"
-  func main(){
-      defer fmt.Println("The fist")
-      fmt.Println("The second")
+  
+  import (
+      "bufio"
+      "fmt"
+      "io"
+      "os"
+  )
+  
+  func main() {
+      inputFile, inputError := os.Open("input.dat")
+      if inputError != nil {
+          fmt.Printf("An error occurred on opening the inputfile\n" +
+              "Does the file exist?\n" +
+              "Have you got acces to it?\n")
+          return 
+      }
+      defer inputFile.Close()
+  
+      inputReader := bufio.NewReader(inputFile)
+      for {
+          inputString, readerError := inputReader.ReadString('\n')
+          fmt.Printf("The input was: %s", inputString)
+          if readerError == io.EOF {
+              return
+          }      
+      }
   }
-  // The second
-  // The first
-
-  //用于数据清理工作，保证代码结构清晰，避免遗忘
-  scrFile,err:= os.Open(scrName)
-  defer srcFile.Close()
-```
+  ```
 
 
+  #### 7.2.2 整体读入字符串
+
+  - 使用io/ioutil包里的ioutil.ReadFile()
+
+  - 返回值[]byte,err
+
+    
+
+    ```go
+    package main
+    import (
+        "fmt"
+        "io/ioutil"
+        "os"
+    )
+    
+    func main() {
+        inputFile := "hehe.txt"
+        outputFile := "hehehe.txt"
+        buf, err := ioutil.ReadFile(inputFile)
+        if err != nil {
+            fmt.Fprintf(os.Stderr, "File Error: %s\n", err)
+        }
+        fmt.Printf("%s\n", string(buf))
+        err = ioutil.WriteFile(outputFile, buf, 0644) 
+        if err != nil {
+            panic(err.Error())
+        }
+    }
+    ```
 
 
+
+#### 7.2.3 带缓存的读入
+
+- bufio.Reader 的 Read()
+
+  ```go
+  buf := make([]byte, num)//num表示读取到的字节数
+  ...
+  n, err := inputReader.Read(buf)
+  if (n == 0) { break}
+  ```
+
+#### 7.2.4 按列读取
+
+- fmt的FSCan开头的函数
+
+  ```go
+  package main
+  import (
+      "fmt"
+      "os"
+  )
+  
+  func main() {
+      file, err := os.Open("yyy.txt")
+      if err != nil {
+          panic(err)
+      }
+      defer file.Close()
+  
+      var col1, col2, col3 []string
+      for {
+          var v1, v2, v3 string
+          _, err := fmt.Fscanln(file, &v1, &v2, &v3)
+          if err != nil {
+              break
+          }
+          col1 = append(col1, v1)
+          col2 = append(col2, v2)
+          col3 = append(col3, v3)
+      }
+  
+      fmt.Println(col1)
+      fmt.Println(col2)
+      fmt.Println(col3)
+  }
+  ```
+
+#### 7.2.5 压缩文件
+
+- import"compress"
+
+- 支持 bzip2,flate,gzip,lzw,zlib
+
+  ``` go
+  package main
+  
+  import (
+      "fmt"
+      "bufio"
+      "os"
+      "compress/gzip"
+  )
+  
+  func main() {
+      fName := "hehe.gz"
+      var r *bufio.Reader
+      fi, err := os.Open(fName)
+      if err != nil {
+          fmt.Fprintf(os.Stderr, "%v, Can't open %s: error: %s\n", os.Args[0], fName,
+              err)
+          os.Exit(1)
+      }
+      fz, err := gzip.NewReader(fi)
+      if err != nil {
+          r = bufio.NewReader(fi)
+      } else {
+          r = bufio.NewReader(fz)
+      }
+  
+      for {
+          line, err := r.ReadString('\n')
+          if err != nil {
+              fmt.Println("Done reading file")
+              os.Exit(0)
+          }
+          fmt.Println(line)
+      }
+  }
+  ```
+
+#### 7.2.6 带缓冲区的写文件
+
+- OpenFile(filename,flag,权限)
+
+- `os.O_RDONLY`：只读
+
+- `os.O_WRONLY`：只写
+
+- `os.O_CREATE`：创建：如果指定文件不存在，就创建该文件。
+
+- `os.O_TRUNC`：截断：如果指定文件已存在，就将该文件的长度截为0。
+
+  ```go
+  package main
+  
+  import (
+      "os"
+      "bufio"
+      "fmt"
+  )
+  
+  func main () {
+      outputFile, outputError := os.OpenFile("output.dat", os.O_WRONLY|os.O_CREATE, 0666)
+      if outputError != nil {
+          fmt.Printf("An error occurred with file opening or creation\n")
+          return  
+      }
+      defer outputFile.Close()
+  
+      outputWriter := bufio.NewWriter(outputFile)//创建一个写入缓冲区
+      outputString := "hello world!\n"
+  
+      for i:=0; i<10; i++ {
+          outputWriter.WriteString(outputString)
+      }
+      outputWriter.Flush()//将缓冲区内容完全写入文件
+  }
+  ```
+
+#### 7.2.7 不带缓冲区写文件
+
+- os.Stdout.WriteString ()  输出到屏幕
+
+- f.WriteString() 直接写入文件
+
+  ```go
+  package main
+  
+  import "os"
+  
+  func main() {
+      os.Stdout.WriteString("hello, world\n")
+      f, _ := os.OpenFile("test", os.O_CREATE|os.O_WRONLY, 0666)
+      defer f.Close()
+      f.WriteString("hello, world in a file\n")
+  }
+  ```
+
+### 1.如何分工
+
+- 模块化编程，提高清晰度，促进团队合作水平，提高开发效率
+  - 建立项目文件
