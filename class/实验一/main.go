@@ -19,7 +19,7 @@ type Stu struct {
 	goScore int
 }
 
-var number = 3
+var number = 5
 
 //修改和显示相关函数
 func (s *Stu) SetstuNum(stuN string) {
