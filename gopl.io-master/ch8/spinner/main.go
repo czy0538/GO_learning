@@ -1,9 +1,3 @@
-// Copyright © 2016 Alan A. A. Donovan & Brian W. Kernighan.
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-
-// See page 218.
-
-// Spinner displays an animation while computing the 45th Fibonacci number.
 package main
 
 import (
